@@ -5,12 +5,22 @@ const port = 8000;
 const app = express();
 const connectionString = 'mongodb+srv://application:SsJ5T1DcKoNF11vW@cluster0.3gqmz.gcp.mongodb.net/application?retryWrites=true&w=majority'
 
-require('./routes')(app, {});app.listen(port, () => {
-  MongoClient.connect(connectionString, {
-    useUnifiedTopology: true
-  }, (err, client) => {
-    console.log(connectionString);
-    if (err) return console.error(err)
-    console.log('Connected to Database')
-  })
-});
+const begin = async () => {
+  let db;
+
+  const getDB = async () => {
+    await MongoClient.connect(connectionString, {
+      useUnifiedTopology: true
+    }).then(client => {
+      return db = client.db('test');
+    });
+  };
+
+  await getDB();
+
+  require('./routes')(app, db);app.listen(port, () => {
+    console.log("connected on " + port);
+  });
+}
+
+begin();
