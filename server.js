@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const port = 8000;
 const app = express();
-const connectionString = 'mongodb+srv://application:SsJ5T1DcKoNF11vW@cluster0.3gqmz.gcp.mongodb.net/application?retryWrites=true&w=majority'
+const connectionString = ''
 
 const begin = async () => {
   let db;
