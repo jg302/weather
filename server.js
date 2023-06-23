@@ -8,17 +8,18 @@ const connectionString = ''
 const begin = async () => {
   let db;
 
-  const getDB = async () => {
-    await MongoClient.connect(connectionString, {
-      useUnifiedTopology: true
-    }).then(client => {
-      return db = client.db('test');
-    });
-  };
+  // const getDB = async () => {
+  //   await MongoClient.connect(connectionString, {
+  //     useUnifiedTopology: true
+  //   }).then(client => {
+  //     return db = client.db('test');
+  //   });
+  // };
 
-  await getDB();
+  // await getDB();
 
-  require('./routes')(app, db);app.listen(port, () => {
+  require('./routes')(app, db);
+  app.listen(port, () => {
     console.log("connected on " + port);
   });
 }

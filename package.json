@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "API_KEY=74ad638b1 nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,6 +16,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "uuid": "^8.3.2"
   }
 }
