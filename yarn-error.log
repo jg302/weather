@@ -1,0 +1,48 @@
+Arguments: 
+  /Users/grayjo/.nvm/versions/node/v18.16.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js
+
+PATH: 
+  /Users/grayjo/.nvm/versions/node/v18.16.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/grayjo/.nvm/versions/node/v18.16.0/bin:/Users/grayjo/.cargo/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: connect ENETUNREACH 10.249.46.164:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16)
+
+npm manifest: 
+  {
+    "name": "service1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+      "dev": "API_KEY=74ad638b1 nodemon server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "body-parser": "^1.19.0",
+      "express": "^4.17.1",
+      "mongodb": "^3.5.2",
+      "nodemon": "^2.0.2"
+    },
+    "dependencies": {
+      "moment": "^2.27.0",
+      "uuid": "^8.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
