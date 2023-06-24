@@ -1,22 +1,16 @@
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser = require('body-parser');
 const port = 8000;
 const app = express();
-const connectionString = ''
+var dbConnect = require('./db');
 
 const begin = async () => {
   let db;
 
-  // const getDB = async () => {
-  //   await MongoClient.connect(connectionString, {
-  //     useUnifiedTopology: true
-  //   }).then(client => {
-  //     return db = client.db('test');
-  //   });
-  // };
+  const config = require('dotenv').config();
 
-  // await getDB();
+  // console.log(process.env);
+
+  await dbConnect();
 
   require('./routes')(app, db);
   app.listen(port, () => {

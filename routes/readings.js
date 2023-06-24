@@ -2,7 +2,7 @@ const moment = require('moment');
 
 module.exports = function(app, db) {
     // Init collection
-    // const readings = db.collection('readings')
+    const readings = db.collection('readings')
 
     app.post('/readings', (req, res) => {
       const { indoorT, humidity, waterT, outT, key } = req.query;
@@ -19,7 +19,7 @@ module.exports = function(app, db) {
       const dateUTC = moment().format();
       const record = { indoorT, humidity, waterT, outT, dateUTC };
 
-      // readings.insertOne(record);
+      readings.insertOne(record);
       res.send("Logged a temp of " + indoorT);
   });
 };
