@@ -3,7 +3,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 async function run() {
   var serverKey = process.env.SERVER_KEY;
 
-  const uri = `mongodb+srv://application:${serverKey}>@weatherstn.3gqmz.mongodb.net/?retryWrites=true&w=majority`;
+  const uri = `mongodb+srv://application:${serverKey}@weatherstn.3gqmz.mongodb.net/?retryWrites=true&w=majority`;
 
   // Create a MongoClient with a MongoClientOptions object to set the Stable API version
   const client = new MongoClient(uri, {
@@ -26,6 +26,9 @@ async function run() {
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
+    const dbs = await client.db();
+    return dbs;
+
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();

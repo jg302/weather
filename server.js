@@ -6,11 +6,8 @@ var dbConnect = require('./db');
 const begin = async () => {
   let db;
 
-  const config = require('dotenv').config();
-
-  // console.log(process.env);
-
-  await dbConnect();
+  require('dotenv').config();
+  await dbConnect().then(mongo => db = mongo);
 
   require('./routes')(app, db);
   app.listen(port, () => {
