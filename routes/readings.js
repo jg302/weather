@@ -4,6 +4,10 @@ module.exports = function(app, db) {
     // Init collection
     const readings = db.collection('readings')
 
+    app.get('/readings', (req, res) => {
+      res.status(200).send("Hi");
+    })
+
     app.post('/readings', (req, res) => {
       const { indoorT, humidity, waterT, outT, key } = req.query;
 

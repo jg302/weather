@@ -10,6 +10,7 @@ const begin = async () => {
   await dbConnect().then(mongo => db = mongo);
 
   require('./routes')(app, db);
+  
   app.listen(port, () => {
     console.log("connected on " + port);
   });
