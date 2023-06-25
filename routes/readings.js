@@ -12,12 +12,15 @@ module.exports = function(app, db) {
       const { indoorT, humidity, waterT, outT, key } = req.query;
 
       if (key !== process.env.API_KEY) {
-        return res.status(403).send("Key wrong")
+        console.warn("Key was wrong");
+        return res.status(403).send("Key wrong");
       }
 
       if (typeof indoorT !== 'string') {
         res.status(400);
-        return res.send("Temperature should be a number, got " + typeof indoorT);
+        const msg = "Temperature should be a number, got " + typeof indoorT;
+        console.warn(msg);
+        return res.send(msg);
       }
 
       const dateUTC = moment().format();
