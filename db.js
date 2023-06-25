@@ -26,12 +26,11 @@ async function run() {
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-    const dbs = await client.db();
+    const dbs = await client.db('weather');
     return dbs;
 
   } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 

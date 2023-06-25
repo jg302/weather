@@ -19,7 +19,11 @@ module.exports = function(app, db) {
       const dateUTC = moment().format();
       const record = { indoorT, humidity, waterT, outT, dateUTC };
 
-      readings.insertOne(record);
-      res.send("Logged a temp of " + indoorT);
+      readings.insertOne(record).then(() => {
+        res.send("Logged ok, temp : " + indoorT);
+      }).catch((e) => {
+        console.warn(e);
+        return res.status(500).send();
+      })
   });
 };
